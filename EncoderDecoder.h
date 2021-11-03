@@ -55,12 +55,10 @@ class EncoderDecoder {
     }
 #if !RpmSelect
     unsigned long GetRpm() {
-      Serial.print("hutu");
       return Rpmdata;
     }
 #else
     double GetRpm() {
-      Serial.print("doub");
       return Rpmdata;
     }
 #endif
