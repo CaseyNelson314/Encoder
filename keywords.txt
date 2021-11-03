@@ -25,4 +25,3 @@ CountReset	KEYWORD2
 #######################################
 
 DEF_EncoderDecoder_H	LITERAL1
-RpmSelec		LITERAL1
