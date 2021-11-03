@@ -2,7 +2,7 @@
         @file   EncoderDecoder.h
         @brief  EncoderReader
         @author CaseyNelson314
-        @date   2021/11/02
+        @date   2021/11/03
 */
 
 #include <Arduino.h>
