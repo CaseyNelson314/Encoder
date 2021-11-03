@@ -1,0 +1,28 @@
+###########################################
+# Syntax Coloring Map EncoderDecoder
+###########################################
+
+###########################################
+# Datatypes	(KEYWORD1)
+###########################################
+
+EncoderDecoder	KEYWORD1
+
+###########################################
+# Methods and Functions	(KEYWORD2)
+###########################################
+
+GetEncodeData	KEYWORD2
+GetCountData	KEYWORD2
+GetRpm		KEYWORD2
+Setppr		KEYWORD2
+SetCountData	KEYWORD2
+RpmReset	KEYWORD2
+CountReset	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+DEF_EncoderDecoder_H	LITERAL1
+RpmSelec		LITERAL1
