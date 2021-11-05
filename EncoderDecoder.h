@@ -5,10 +5,9 @@
         @date   2021/11/03
 */
 
+#pragma once
 #include <Arduino.h>
 
-#ifndef DEF_EncoderDecoder_H
-#define DEF_EncoderDecoder_H
 #define RpmSelect 0 //rpm 0:整数型,1:浮動小数点型
 class EncoderDecoder {
 
@@ -79,4 +78,3 @@ class EncoderDecoder {
     }
 
 };
-#endif
