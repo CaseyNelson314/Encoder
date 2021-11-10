@@ -2,45 +2,46 @@
         @file   EncoderDecoder.h
         @brief  EncoderReader
         @author CaseyNelson314
-        @date   2021/11/03
+        @date   2021/11/10
 */
 
 #pragma once
 #include <Arduino.h>
 
-#define RpmSelect 0 //rpm 0:整数型,1:浮動小数点型
+#define RpmSelect 1 //rpm 0:整数型,1:浮動小数点型
+
 class EncoderDecoder {
 
   private:
-    byte InputPinA, InputPinB;
+    const byte InputPinA, InputPinB;
+    const unsigned long pprdata;  // 分解能(クリック/1回転)
     byte dataA, dataB;
     int  Encodata;
-    long Countdata, OldCountdata;
+    long Countdata;
     unsigned long Time, OldTime;
-    unsigned long pprdata;  // 分解能(クリック/1回転)
+    
 #if !RpmSelect
     unsigned long Rpmdata;
 #else
     double Rpmdata;
 #endif
+
   public:
 
-    EncoderDecoder(byte EncoderPinA, byte EncoderPinB): InputPinA(EncoderPinA), InputPinB(EncoderPinB) {
+    EncoderDecoder(byte EncoderPinA, byte EncoderPinB, unsigned long PprData = 0): InputPinA(EncoderPinA), InputPinB(EncoderPinB) , pprdata(PprData) {
       pinMode(InputPinA, INPUT_PULLUP);
       pinMode(InputPinB, INPUT_PULLUP);
     }
 
     void Update() {
-      OldCountdata = Countdata;
       Countdata += (Encodata = (dataA - dataB) * !(dataA = digitalRead(InputPinA)) * !(dataB = digitalRead(InputPinB)));
-      if (abs(Countdata - OldCountdata) >= 1) {
+      if (Encodata != 0 && pprdata != 0) {
         Time = millis();
 #if !RpmSelect
         Rpmdata = 60000 / ((Time - OldTime) * pprdata);
 #else
         Rpmdata = 60000 / ((double)(Time - OldTime) * (double)pprdata);
 #endif
-        OldCountdata = Countdata;
         OldTime = Time;
       }
     }
@@ -61,9 +62,6 @@ class EncoderDecoder {
       return Rpmdata;
     }
 #endif
-    void Setppr(unsigned long PPRDATA) {
-      pprdata = PPRDATA;
-    }
 
     void SetCountData(long COUNTDATA) {
       Countdata = COUNTDATA;
