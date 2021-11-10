@@ -14,11 +14,10 @@ EncoderDecoder	KEYWORD1
 
 GetEncodeData	KEYWORD2
 GetCountData	KEYWORD2
-GetRpm		KEYWORD2
-Setppr		KEYWORD2
+GetRpm		    KEYWORD2
 SetCountData	KEYWORD2
-RpmReset	KEYWORD2
-CountReset	KEYWORD2
+RpmReset	    KEYWORD2
+CountReset	  KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
