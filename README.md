@@ -13,7 +13,7 @@ Date      2021/11/02
 ```
 EncoderDecoder(inputpinA,inputpinB);
 ```
-#Function list
+#　Function list
 ```
 GetEncodeData     正転だと1,逆転正転0
 GetCountData      正転だとカウントアップ,逆転だとカウントダウン
